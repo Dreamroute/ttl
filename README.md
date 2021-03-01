@@ -9,9 +9,11 @@ SpringBoot依赖：
 <dependency>
     <groupId>com.github.dreamroute</groupId>
     <artifactId>ttl-spring-boot-starter</artifactId>
-    <version>1.0-RELEASE</version>
+    <version>最新版本</version>
 </dependency>
 ```
+
+### 最新版本，[点击查看](https://search.maven.org/search?q=ttl-spring-boot-starter)
 
 ##### 效果：
 * 系统中被@Async标记的方法回从Spring线程池中获取线程，获取到的线程已经被ttl处理过，对用来说是透明的

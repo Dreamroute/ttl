@@ -1,2 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.github.dreamroute.ttl.config.TtlAutoConfiguration
+  com.github.dreamroute.ttl.config.TtlAsyncAutoConfiguration, \
+  com.github.dreamroute.ttl.config.TtlThreadPoolAutoConfiguration

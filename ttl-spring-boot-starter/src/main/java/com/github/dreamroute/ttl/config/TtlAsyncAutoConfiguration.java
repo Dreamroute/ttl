@@ -1,20 +1,20 @@
 package com.github.dreamroute.ttl.config;
 
 import com.alibaba.ttl.threadpool.TtlExecutors;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.annotation.Resource;
 import java.util.concurrent.Executor;
 
 /**
+ * 让异步调用的线程池被ttl代理
+ *
  * @author w.dehai
  */
-@Configuration
-@ConditionalOnBean(ThreadPoolTaskExecutor.class)
-public class TtlAutoConfiguration implements AsyncConfigurer {
+@EnableAsync
+public class TtlAsyncAutoConfiguration implements AsyncConfigurer {
 
     @Resource
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;

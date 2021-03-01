@@ -5,3 +5,6 @@
 /ttl-spring-boot-starter/target/
 /ttl-spring-boot-starter/.flattened-pom.xml
 /ttl-spring-boot-starter/ttl-spring-boot-starter.iml
+/ttl-sample/ttl-sample.iml
+/ttl-sample/target/
+/ttl-sample/.flattened-pom.xml

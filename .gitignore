@@ -1,0 +1,7 @@
+/.idea/
+/.flattened-pom.xml
+/ttl.iml
+/target/
+/ttl-spring-boot-starter/target/
+/ttl-spring-boot-starter/.flattened-pom.xml
+/ttl-spring-boot-starter/ttl-spring-boot-starter.iml

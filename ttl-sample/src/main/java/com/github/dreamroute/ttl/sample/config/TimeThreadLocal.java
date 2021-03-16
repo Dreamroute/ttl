@@ -7,5 +7,5 @@ import com.alibaba.ttl.TransmittableThreadLocal;
  */
 public class TimeThreadLocal {
     private TimeThreadLocal() {}
-    public static final TransmittableThreadLocal<Long> TIME = new TransmittableThreadLocal<>();
+    public static final ThreadLocal<Long> TIME = new TransmittableThreadLocal<>();
 }

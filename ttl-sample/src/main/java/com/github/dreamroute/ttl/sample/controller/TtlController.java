@@ -14,9 +14,9 @@ import static com.alibaba.fastjson.JSON.toJSONString;
 @AllArgsConstructor
 public class TtlController {
 
-    private TtlService ttlService;
-    private AsyncService asyncService;
-    private PoolUseService poolUseService;
+    private final TtlService ttlService;
+    private final AsyncService asyncService;
+    private final PoolUseService poolUseService;
 
     @GetMapping("/ttl")
     public String ttl(Long id) {

@@ -16,7 +16,7 @@ public class TtlController {
     private final PoolUseService poolUseService;
 
     @GetMapping("/ttl")
-    public String ttl(Long id) {
+    public String ttl() {
         ttlService.ttl();
         asyncService.as();
         poolUseService.pu();

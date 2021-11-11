@@ -1,11 +1,18 @@
-# ttl
-封装了阿里transmittable-thread-local工具，让SpringBoot应用更为简单的使用TTL
+# ttl-spring-boot-starter
 
-##### 封装了阿里的ttl，封装的理由：使用agent的方式有点繁琐，需要修改启动命令，另外，本地IDE开发的时候总是需要配置jvm启动参数，参考了ttl项目的issue#152和#173，总结出来的。
+封装了阿里[`TransmittableThreadLocal(TTL)`](https://github.com/alibaba/transmittable-thread-local)工具，让`SpringBoot`应用更简单地使用`TTL`。
 
-##### 使用方法
-SpringBoot依赖：
-```
+#### 封装阿里`TTL`的原因
+
+使用`Agent`的方式有点繁琐，需要修改启动命令；另外，本地`IDE`开发的时候总是需要配置`JVM`启动参数。
+
+参考了`TTL`项目的issue [#152](https://github.com/alibaba/transmittable-thread-local/issues/152) 和 [#173](https://github.com/alibaba/transmittable-thread-local/issues/173)，总结出来的。
+
+## 使用方法
+
+`SpringBoot`依赖：
+
+```xml
 <dependency>
     <groupId>com.github.dreamroute</groupId>
     <artifactId>ttl-spring-boot-starter</artifactId>
@@ -13,9 +20,10 @@ SpringBoot依赖：
 </dependency>
 ```
 
-### 最新版本，[点击查看](https://search.maven.org/search?q=ttl-spring-boot-starter)
+#### 最新版本：[![点击查看](https://img.shields.io/maven-central/v/com.github.dreamroute/ttl-spring-boot-starter?color=2d545e&logo=apache-maven&logoColor=white)](https://search.maven.org/artifact/com.github.dreamroute/ttl-spring-boot-starter)
 
-##### 效果：
-* 系统中被@Async标记的方法回从Spring线程池中获取线程，获取到的线程已经被ttl处理过，对用户来说是透明的
-* 如果系统中其他地方需要使用线程池，并且希望带着ThreadLocal信息，那么直接注入ExecutorService即可，starter已经将ExecutorService用ttl代理，
-只要引入starter包，系统中任何地方注入ExecutorService，都可以享受到ThreadLocal的传递
+## 效果
+
+* 系统中被`@Async`标记的方法回从`Spring`线程池中获取线程，获取到的线程已经被`TTL`处理过，对用户来说是透明的。
+* 如果系统中其他地方需要使用线程池，并且希望带着`ThreadLocal`信息，那么直接注入`ExecutorService`即可，`starter`已经将`ExecutorService`用`TTL`代理，
+只要引入`starter`包，系统中任何地方注入`ExecutorService`，都可以享受到`ThreadLocal`的传递。

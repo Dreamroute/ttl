@@ -5,9 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import static com.github.dreamroute.ttl.sample.config.TimeThreadLocal.TIME;
 import static java.lang.Thread.currentThread;
 
@@ -15,13 +12,9 @@ import static java.lang.Thread.currentThread;
 @Service
 public class AsyncServiceImpl implements AsyncService {
 
-    private final Set<Long> ids = new HashSet<>();
-
     @Async
     @Override
-    public void as() {
-        long id = currentThread().getId();
-        ids.add(id);
-        log.info("as: spring ids: " + ids.size() + ", id: " + id + ", time: " + TIME.get());
+    public void async() {
+        log.warn("        async-service in: tid: " + currentThread().getId() + ", time: " + TIME.get());
     }
 }

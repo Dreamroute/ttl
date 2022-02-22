@@ -4,9 +4,14 @@ import com.github.dreamroute.ttl.sample.service.AsyncService;
 import com.github.dreamroute.ttl.sample.service.PoolUseService;
 import com.github.dreamroute.ttl.sample.service.TtlService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.github.dreamroute.ttl.sample.config.TimeThreadLocal.TIME;
+import static java.lang.Thread.currentThread;
+
+@Slf4j
 @RestController
 @AllArgsConstructor
 public class TtlController {
@@ -17,9 +22,10 @@ public class TtlController {
 
     @GetMapping("/ttl")
     public String ttl() {
+        log.info("           controller in: tid: " + currentThread().getId() + ", time: " + TIME.get());
         ttlService.ttl();
-        asyncService.as();
-        poolUseService.pu();
+        asyncService.async();
+        poolUseService.poolUse();
         return "ok";
     }
 }

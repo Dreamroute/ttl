@@ -10,9 +10,9 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
+import static com.github.dreamroute.ttl.sample.config.TimeThreadLocal.TIME;
+import static java.lang.System.currentTimeMillis;
 import static java.lang.Thread.currentThread;
 
 @Slf4j
@@ -20,13 +20,12 @@ import static java.lang.Thread.currentThread;
 @Component
 public class JavaFilter implements Filter {
 
-    private final Set<Long> ids = new HashSet<>();
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        long time = currentTimeMillis();
+        TIME.set(time);
+        log.info("          java filter in: tid: " + currentThread().getId() + ", time: " + time);
         filterChain.doFilter(servletRequest, servletResponse);
-        ids.add(currentThread().getId());
-        log.info("java filter ids: " + ids.size());
-        log.info("------------------------------");
+        log.info("         java filter out: tid: " + currentThread().getId() + ", time: " + TIME.get());
     }
 }

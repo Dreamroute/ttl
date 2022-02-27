@@ -1,8 +1,8 @@
 package com.github.dreamroute.ttl.config;
 
 import com.alibaba.ttl.threadpool.TtlExecutors;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import javax.annotation.Resource;
@@ -13,9 +13,9 @@ import java.util.concurrent.Executor;
  *
  * @author w.dehai
  */
-@EnableAsync
 public class TtlAsyncAutoConfiguration implements AsyncConfigurer {
 
+    @Lazy
     @Resource
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 

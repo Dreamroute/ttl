@@ -1,7 +1,7 @@
 package com.github.dreamroute.ttl.config;
 
 import com.alibaba.ttl.threadpool.TtlExecutors;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  * @author w.dehi
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class TtlThreadPoolAutoConfiguration {
 
     private final ThreadPoolTaskExecutor threadPoolTaskExecutor;

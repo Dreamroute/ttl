@@ -2,7 +2,7 @@ package com.github.dreamroute.ttl.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  *  3. 二者的线程名称也不同
  *  4. 二者的tid（thread id）不同
  */
-@Async
+@EnableAsync
 @SpringBootApplication
 @EnableTransactionManagement
 public class Application {

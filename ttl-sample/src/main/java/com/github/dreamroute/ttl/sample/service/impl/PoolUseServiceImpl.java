@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Callable;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 
 import static com.github.dreamroute.ttl.sample.config.TimeThreadLocal.TIME;
@@ -34,5 +35,12 @@ public class PoolUseServiceImpl implements PoolUseService {
         } catch (Exception e) {
             Thread.currentThread().interrupt();
         }
+
+        pool.submit(() -> log.info("                     submit              " + TIME.get()));
+        CompletableFuture.supplyAsync(() -> {
+            log.info("          completablefuture              " + TIME.get());
+            return "w.dehai";
+        }, pool).join();
+        log.info("                                         " + TIME.get());
     }
 }

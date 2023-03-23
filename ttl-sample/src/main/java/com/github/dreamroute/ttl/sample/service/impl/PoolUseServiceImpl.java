@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutorService;
 
 import static com.github.dreamroute.ttl.sample.config.TimeThreadLocal.TIME;
 import static java.lang.Thread.currentThread;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 @Slf4j
 @Service
@@ -39,6 +40,18 @@ public class PoolUseServiceImpl implements PoolUseService {
         pool.submit(() -> log.info("                     submit              " + TIME.get()));
         CompletableFuture.supplyAsync(() -> {
             log.info("          completablefuture              " + TIME.get());
+
+            for (int k = 0; k < 10; k++) {
+                Thread t = new Thread(() -> log.info("    inner.completablefuture              " + TIME.get()));
+                t.setName("innser.completable." + k);
+                t.start();
+            }
+
+            try {
+                SECONDS.sleep(1L);
+            } catch (Exception e) {
+                //
+            }
             return "w.dehai";
         }, pool).join();
         log.info("                                         " + TIME.get());
